@@ -1,0 +1,6 @@
+# Working assets stay local — only the webp textures ship with the game.
+ref/
+*.png
+*.psd
+# ...except the X.com card preview (published with the site)
+!preview.png
