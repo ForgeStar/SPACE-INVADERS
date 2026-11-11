@@ -7,7 +7,7 @@ A single-file clone of Taito's 1978 **SPACE INVADERS** in vanilla JS + canvas, r
 - Open [index.html](index.html) — that's the whole game (no build step, no dependencies).
 - ◄/► or A/D: move · Space: fire · Any key: start
 - Touch: tap to start · tap screen to fire · drag sideways: steer
-- P: pause · M: mute · C: cycle CRT glass mode (Off / Arcade / Glass)
+- P: pause · M: mute · C: cycle CRT glass mode (Off / Clean)
 
 ## Mechanics (per the 1978 original)
 
@@ -30,4 +30,4 @@ A single-file clone of Taito's 1978 **SPACE INVADERS** in vanilla JS + canvas, r
 
 This repo is deployed as-is from the root, so the game lives at:
 
-    https://forgestar.github.io/Space-Invaders/
+    https://forgestar.github.io/SPACE-INVADERS/
