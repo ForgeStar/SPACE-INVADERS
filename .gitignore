@@ -4,3 +4,6 @@ ref/
 *.psd
 # ...except the X.com card preview (published with the site)
 !preview.png
+# Local-only extras (not used by the game)
+preview_loop.mp4
+si_driver.cpp
