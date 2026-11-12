@@ -22,9 +22,11 @@ A single-file clone of Taito's 1978 **SPACE INVADERS** in vanilla JS + canvas, r
 
 ## Art
 
-- Bezel (`bezel.webp`/`bezel.png`) is the **Asteroids placeholder** — same 1024×1024 panel and screen hole, so the glow/plexi/reflect/shader pipeline works unchanged. New Space Invaders bezel art is coming; when it lands, the glow fallback mask (`GLOW_FALLBACK_MASK`) must be re-baked (pipeline in `NOTES.md`).
+- Bezel (`bezel.webp`/`bezel.png`) is the **Space Invaders cabinet art** — a 1024×1024 panel: the title, UFOs and invader creatures up top, a starfield, a retro TV frame around the screen, lunar terrain below, and the classic score table. It keeps the collection's squircle screen hole, so the glow/plexi/reflect/shader pipeline works unchanged. The webp carries an intentional veil alpha over the hole (~80% opaque) so the baked reflections show over the game — don't zero it.
+- Ray gun (`Bezel_Raygun.webp`): a red ray-gun cutout (the panel's bottom-left quadrant, alpha + baked drop shadow). On the real cabinet it was a separate cardboard piece under the glass, so it sits above the bezel art and below the glass layers.
 - Sprites are hand-authored 2-frame bitmaps (classic shapes), pre-rendered to offscreen canvases at 2× for crisp `drawImage`.
 - Plexiglass layer: worn clear-plastic texture — curved stress cracks, hairline scratches, dust — rendered in the CRT shader and lit from below, so only glowing screen pixels reveal the scratches.
+- Glow mask (`GLOW_FALLBACK_MASK`) is pre-baked from the SI squircle hole (`ref/ScreenHole.png`); re-bake it if the hole ever moves (pipeline in `NOTES.md`).
 
 ## GitHub Pages
 
