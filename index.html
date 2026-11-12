@@ -1235,7 +1235,7 @@ function initGlow() {
     "  float dist = m.g; // 0 at the hole edge, 1 at GLOW.maxDist or beyond",
     "  // Game-screen UVs, extended past [0,1] so edge colour bleeds onto the",
     "  // plastic when objects fly off screen (CLAMP_TO_EDGE does the smearing).",
-    "  vec2 guv = (vUv * 1024.0 - vec2(179.12, 194.53)) / vec2(701.76, 659.94);",
+    "  vec2 guv = (vUv * 1024.0 - vec2(169.0, 210.0)) / vec2(687.0, 605.0); // = CSS #screen rect",
     "  // Sharper near the glass, fuzzier further out",
     "  vec3 col = mix(texture2D(u_blur1, guv).rgb, texture2D(u_blur2, guv).rgb,",
     "                 smoothstep(0.15, 0.75, dist));",

@@ -30,7 +30,7 @@ shaders, and mask verbatim; only the game section differs.
   The webp has the
   intentional veil alpha (screen-hole region ~80% opaque so baked reflections
   show over the game). **Never zero that alpha.** Same 1024×1024 panel, same
-  squircle hole (screen rect left 186, top 201, 688×647) — that's why the
+  squircle hole (screen rect left 169, top 210, 687×605) — that's why the
   screen CSS, glow mask, and shaders work unchanged.
 - `Bezel_Raygun.webp` — red ray-gun cutout, 512×512 = bottom-left quadrant of
   the panel, alpha + **baked** drop shadow (real cabinet: separate cardboard
@@ -93,6 +93,14 @@ Re-bake recipe = Asteroids NOTES.md §"Re-baking the mask". If the hole ever
 moves: also update the CSS `#screen` rect, the COMP_FS screen rect, and the
 canvas W/H + layout constants. `vert_screen_mask.png` in ref/ suggests
 vertical is possible.
+- **2026-11-12: right-side glow offset fixed.** The glow shader's `guv`
+  (COMP_FS, line ~1238) was sampling the game screen from a stale rect
+  (179.1, 194.5, 701.8×659.9) — offset +17.5 px right / +12 px down and
+  mis-scaled vs the actual CSS `#screen` (169, 210, 687×605). Corrected
+  `guv` to `(vUv*1024 - vec2(169,210)) / vec2(687,605)`. The baked mask was
+  confirmed correct (hole centred within ~1.5 px of the game); no re-bake
+  needed. Verified with a headless-Edge calibration: a dot at the game-canvas
+  centre lands at (512, 512) = the `#screen` rect centre.
 
 ## CRT shader / plexi
 Identical to the Asteroids build (copied verbatim): Glass TV mode default,
